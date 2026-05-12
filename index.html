@@ -972,13 +972,11 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
   gap: 8px;
   background: rgba(5, 177, 123, 0.08);
   border-radius: 100px;
-  padding: 8px 18px 8px 12px;
+  padding: 8px 18px;
   margin-bottom: 28px;
 }
 .hero__eyebrow-v2 img {
-  width: 20px;
-  height: 20px;
-  flex: 0 0 20px;
+  display: none;
 }
 .hero__eyebrow-v2 span {
   font-size: 14px;
@@ -1316,6 +1314,78 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
   }
   .form-header__question {
     font-size: 1.1rem !important;
+  }
+}
+</style>
+
+<style id="cs-about-section">
+/* ============================================================
+   ABOUT US / ÜBER UNS – Sektion
+   ============================================================ */
+.cs-about {
+  background: #f9fafb;
+  padding: 80px 0;
+}
+.cs-about__container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+.cs-about__eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #05b17b;
+  margin-bottom: 16px;
+}
+.cs-about__title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #0a2540;
+  margin-bottom: 32px;
+}
+.cs-about__content {
+  text-align: left;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.cs-about__content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4b5563;
+  margin-bottom: 20px;
+}
+.cs-about__content p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .cs-about {
+    padding: 56px 0;
+  }
+  .cs-about__title {
+    font-size: 1.35rem;
+  }
+  .cs-about__content p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+}
+
+@media (max-width: 480px) {
+  .cs-about {
+    padding: 40px 0;
+  }
+  .cs-about__container {
+    padding: 0 16px;
+  }
+  .cs-about__title {
+    font-size: 1.2rem;
+    margin-bottom: 24px;
   }
 }
 </style>
@@ -2428,7 +2498,6 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
               <div class="hero__text-side">
                 <div id="hero" data-fls-watcher="navigator" style="height: 1px; width: 1px; opacity: 0"></div>
                 <div class="hero__eyebrow-v2">
-                  <img src="./assets/img/icon-plus-circle.svg" alt="" />
                   <span>Geprüfte Kliniken in der Schweiz</span>
                 </div>
                 <h1 class="hero__title hero__title--v2">
@@ -2807,6 +2876,20 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
             </div>
           </div>
         </section>
+
+        <!-- About Us / Über uns -->
+        <section class="cs-about" id="about">
+          <div class="cs-about__container">
+            <div class="cs-about__eyebrow">Über ClinicSelect</div>
+            <h2 class="cs-about__title">Wir machen den Weg zur passenden Klinik einfach, persönlich und vertrauensvoll</h2>
+            <div class="cs-about__content">
+              <p>ClinicSelect wurde gegründet, weil wir selbst erlebt haben, wie schwer es sein kann, die richtige Klinik für eine ästhetische Behandlung zu finden. Unzählige Anbieter, widersprüchliche Bewertungen und das ungute Gefühl, vielleicht die falsche Entscheidung zu treffen – das wollten wir ändern.</p>
+              <p>Unser Team arbeitet ausschliesslich mit sorgfältig geprüften Kliniken in der Schweiz zusammen, die für natürliche Ergebnisse, seriöse Beratung und höchste medizinische Standards stehen. Wir nehmen uns Zeit, dein Anliegen wirklich zu verstehen – und verbinden dich gezielt mit einer Klinik, die zu dir und deinen Wünschen passt.</p>
+              <p>Dabei ist unser Service für dich komplett kostenlos und unverbindlich. Keine versteckten Kosten, kein Druck – nur eine ehrliche Empfehlung, der du vertrauen kannst.</p>
+            </div>
+          </div>
+        </section>
+
       </main>
       <footer data-fls-footer="" class="footer">
         <div class="footer__container">
