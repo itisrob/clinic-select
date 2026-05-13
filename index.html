@@ -3711,21 +3711,24 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
   .wa-close {
     position: absolute;
     top: 6px;
-    right: 8px;
-    background: none;
+    right: 6px;
+    background: #f3f4f6;
     border: none;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 1;
-    color: #9ca3af;
+    color: #6b7280;
     cursor: pointer;
     padding: 0;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
   .wa-close:hover {
+    background: #e5e7eb;
     color: #374151;
   }
   .whatsapp-text.hidden {
@@ -3733,9 +3736,14 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
     transform: translateY(8px) scale(0.95);
     pointer-events: none;
   }
-  /* Desktop: hover reveals the bubble */
+  /* Desktop: bubble starts hidden, only shows on hover */
   @media (hover: hover) {
-    .whatsapp-wrapper:hover .whatsapp-text.hidden {
+    .whatsapp-text {
+      opacity: 0;
+      transform: translateY(8px) scale(0.95);
+      pointer-events: none;
+    }
+    .whatsapp-wrapper:hover .whatsapp-text {
       opacity: 1;
       transform: translateY(0) scale(1);
       pointer-events: auto;
@@ -3791,11 +3799,13 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
     });
   }
 
-  // Auto-hide: 4s on mobile, 5s on desktop
-  var delay = window.innerWidth <= 640 ? 4000 : 5000;
-  setTimeout(function() {
-    waText.classList.add('hidden');
-  }, delay);
+  // Auto-hide only on touch/mobile devices (no hover capability)
+  var isTouch = !window.matchMedia('(hover: hover)').matches;
+  if (isTouch) {
+    setTimeout(function() {
+      waText.classList.add('hidden');
+    }, 4000);
+  }
 })();
 </script>
 
