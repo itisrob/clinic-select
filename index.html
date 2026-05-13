@@ -1119,14 +1119,14 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
     gap: 0;
     min-height: auto;
   }
-  .hero__text-side {
-    padding: 32px 0 0 0;
-    text-align: center;
-    order: 1;
-  }
   .hero__image-side {
-    order: 2;
+    order: 1;
     padding: 24px 16px 0;
+  }
+  .hero__text-side {
+    padding: 24px 0 0 0;
+    text-align: center;
+    order: 2;
   }
   .hero__eyebrow-v2 {
     margin-left: auto;
@@ -1361,6 +1361,37 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
 }
 .cs-about__content p:last-child {
   margin-bottom: 0;
+}
+.cs-about__subtitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0a2540;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.cs-about__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+.cs-about__list li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4b5563;
+  margin-bottom: 6px;
+}
+.cs-about__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background: #05b17b;
+  border-radius: 50%;
 }
 
 @media (max-width: 768px) {
@@ -2431,6 +2462,15 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
                     >So funktioniert es</a
                   >
                 </li>
+                <li class="menu__item">
+                  <a
+                    href="#about"
+                    data-fls-scrollto="#about"
+                    data-fls-scrollto-header=""
+                    class="menu__link"
+                    >Über ClinicSelect</a
+                  >
+                </li>
               </ul>
               <div class="mobile-content">
                 <a
@@ -2501,9 +2541,9 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
                   <span>Geprüfte Kliniken in der Schweiz</span>
                 </div>
                 <h1 class="hero__title hero__title--v2">
-                  Die passende Klinik<br>in weniger als 60&nbsp;Sekunden
+                  Finde eine ästhetische Klinik,<br>die wirklich zu dir passt
                 </h1>
-                <p class="hero__subtitle-v2">Für ein natürliches Ergebnis – wir verbinden dich mit einer geprüften Klinik, die zu deinen Wünschen passt.</p>
+                <p class="hero__subtitle-v2">Für natürliche Ergebnisse verbinden wir dich mit einer sorgfältig ausgewählten Klinik in der Schweiz.</p>
                 <a data-fls-button="" data-fls-scrollto="#form" data-fls-scrollto-header="" href="#form" class="hero__button hero__button--v2">
                   Jetzt Klinikvorschlag sichern
                   <img src="./assets/img/icon-plus-white.svg" alt="" />
@@ -2881,11 +2921,24 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
         <section class="cs-about" id="about">
           <div class="cs-about__container">
             <div class="cs-about__eyebrow">Über ClinicSelect</div>
-            <h2 class="cs-about__title">Wir machen den Weg zur passenden Klinik einfach, persönlich und vertrauensvoll</h2>
+            <h2 class="cs-about__title">Die Wahl einer ästhetischen Klinik ist eine sehr persönliche Entscheidung</h2>
             <div class="cs-about__content">
-              <p>ClinicSelect wurde gegründet, weil wir selbst erlebt haben, wie schwer es sein kann, die richtige Klinik für eine ästhetische Behandlung zu finden. Unzählige Anbieter, widersprüchliche Bewertungen und das ungute Gefühl, vielleicht die falsche Entscheidung zu treffen – das wollten wir ändern.</p>
-              <p>Unser Team arbeitet ausschliesslich mit sorgfältig geprüften Kliniken in der Schweiz zusammen, die für natürliche Ergebnisse, seriöse Beratung und höchste medizinische Standards stehen. Wir nehmen uns Zeit, dein Anliegen wirklich zu verstehen – und verbinden dich gezielt mit einer Klinik, die zu dir und deinen Wünschen passt.</p>
-              <p>Dabei ist unser Service für dich komplett kostenlos und unverbindlich. Keine versteckten Kosten, kein Druck – nur eine ehrliche Empfehlung, der du vertrauen kannst.</p>
+              <p>Zwischen Social Media, Werbung und unzähligen Angeboten ist es oft schwierig zu erkennen, welche Kliniken wirklich seriös arbeiten und natürliche Ergebnisse bieten.</p>
+              <p>Genau deshalb wurde ClinicSelect gegründet.</p>
+              <p>Wir helfen Menschen dabei, passende ästhetische Kliniken in der Schweiz einfacher, diskreter und transparenter zu finden.</p>
+
+              <h3 class="cs-about__subtitle">Wie wir Kliniken auswählen</h3>
+              <p>Wir arbeiten ausschließlich mit ausgewählten Partnerkliniken zusammen. Dabei achten wir unter anderem auf:</p>
+              <ul class="cs-about__list">
+                <li>Erfahrung im Bereich ästhetischer Medizin</li>
+                <li>Professionelle Beratung</li>
+                <li>Fokus auf natürliche Ergebnisse</li>
+                <li>Moderne Standards</li>
+                <li>Positive öffentliche Bewertungen</li>
+              </ul>
+
+              <h3 class="cs-about__subtitle">Diskret &amp; unverbindlich</h3>
+              <p>Ästhetische Behandlungen sind ein sensibles Thema. Deshalb legen wir großen Wert auf diskrete Kommunikation, persönliche Unterstützung und unverbindliche Anfragen.</p>
             </div>
           </div>
         </section>
@@ -3564,20 +3617,41 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
 }
 </style>
 
-<!-- WhatsApp Sticky Button -->
-<a href="https://wa.me/41798319846?text=Hallo%20ClinicSelect%2C%20ich%20habe%20eine%20Frage." target="_blank" rel="noopener noreferrer" class="whatsapp-sticky" aria-label="Per WhatsApp kontaktieren">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32" fill="#fff">
-    <path d="M24 4C12.95 4 4 12.95 4 24c0 3.54.93 6.86 2.55 9.73L4 44l10.57-2.47A19.9 19.9 0 0 0 24 44c11.05 0 20-8.95 20-20S35.05 4 24 4Zm0 36.5a16.4 16.4 0 0 1-8.67-2.47l-.62-.37-6.27 1.47 1.53-6.1-.4-.65A16.4 16.4 0 0 1 7.5 24c0-9.11 7.39-16.5 16.5-16.5S40.5 14.89 40.5 24 33.11 40.5 24 40.5Zm9.03-12.35c-.5-.25-2.93-1.45-3.39-1.61-.45-.17-.78-.25-1.11.25s-1.27 1.61-1.56 1.94c-.29.33-.57.37-1.07.12a13.5 13.5 0 0 1-3.97-2.45 14.9 14.9 0 0 1-2.75-3.42c-.29-.5-.03-.77.22-1.02.22-.22.5-.57.74-.86.25-.29.33-.5.5-.83.17-.33.08-.62-.04-.86-.12-.25-1.11-2.68-1.52-3.67-.4-.96-.81-.83-1.11-.85h-.95c-.33 0-.86.12-1.31.62s-1.72 1.69-1.72 4.11 1.77 4.77 2.01 5.1c.25.33 3.48 5.31 8.43 7.45 1.18.51 2.1.82 2.82 1.04 1.18.38 2.26.32 3.11.2.95-.14 2.93-1.2 3.35-2.35.41-1.16.41-2.15.29-2.35-.13-.21-.46-.33-.95-.58Z"/>
-  </svg>
-</a>
+<!-- WhatsApp Sticky Button with Text -->
+<div class="whatsapp-wrapper">
+  <div class="whatsapp-text">Noch unsicher oder offene Fragen? Schreib uns ganz unkompliziert und unverbindlich per WhatsApp.</div>
+  <a href="https://wa.me/41798319846?text=Hallo%20ClinicSelect%2C%20ich%20habe%20eine%20Frage." target="_blank" rel="noopener noreferrer" class="whatsapp-sticky" aria-label="Per WhatsApp kontaktieren">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32" fill="#fff">
+      <path d="M24 4C12.95 4 4 12.95 4 24c0 3.54.93 6.86 2.55 9.73L4 44l10.57-2.47A19.9 19.9 0 0 0 24 44c11.05 0 20-8.95 20-20S35.05 4 24 4Zm0 36.5a16.4 16.4 0 0 1-8.67-2.47l-.62-.37-6.27 1.47 1.53-6.1-.4-.65A16.4 16.4 0 0 1 7.5 24c0-9.11 7.39-16.5 16.5-16.5S40.5 14.89 40.5 24 33.11 40.5 24 40.5Zm9.03-12.35c-.5-.25-2.93-1.45-3.39-1.61-.45-.17-.78-.25-1.11.25s-1.27 1.61-1.56 1.94c-.29.33-.57.37-1.07.12a13.5 13.5 0 0 1-3.97-2.45 14.9 14.9 0 0 1-2.75-3.42c-.29-.5-.03-.77.22-1.02.22-.22.5-.57.74-.86.25-.29.33-.5.5-.83.17-.33.08-.62-.04-.86-.12-.25-1.11-2.68-1.52-3.67-.4-.96-.81-.83-1.11-.85h-.95c-.33 0-.86.12-1.31.62s-1.72 1.69-1.72 4.11 1.77 4.77 2.01 5.1c.25.33 3.48 5.31 8.43 7.45 1.18.51 2.1.82 2.82 1.04 1.18.38 2.26.32 3.11.2.95-.14 2.93-1.2 3.35-2.35.41-1.16.41-2.15.29-2.35-.13-.21-.46-.33-.95-.58Z"/>
+    </svg>
+  </a>
+</div>
 <style>
-  .whatsapp-sticky {
+  .whatsapp-wrapper {
     position: fixed;
     bottom: 24px;
     right: 24px;
     z-index: 9999;
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+  }
+  .whatsapp-text {
+    background: #fff;
+    color: #374151;
+    font-size: 13px;
+    line-height: 1.45;
+    padding: 12px 16px;
+    border-radius: 16px 16px 4px 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    max-width: 240px;
+    font-family: 'PlusJakartaSans', sans-serif;
+    font-weight: 400;
+  }
+  .whatsapp-sticky {
     width: 60px;
     height: 60px;
+    min-width: 60px;
     background: #25D366;
     border-radius: 50%;
     display: flex;
@@ -3592,11 +3666,20 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   }
   @media (max-width: 640px) {
-    .whatsapp-sticky {
+    .whatsapp-wrapper {
       bottom: 16px;
       right: 16px;
+      gap: 8px;
+    }
+    .whatsapp-text {
+      font-size: 12px;
+      padding: 10px 12px;
+      max-width: 200px;
+    }
+    .whatsapp-sticky {
       width: 54px;
       height: 54px;
+      min-width: 54px;
     }
   }
 </style>
