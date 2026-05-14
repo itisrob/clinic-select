@@ -1161,9 +1161,11 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
   .hero__button--v2 {
     margin-left: auto !important;
     margin-right: auto !important;
-    max-width: 100% !important;
+    max-width: 360px !important;
     width: 100% !important;
-    height: 56px !important;
+    height: 50px !important;
+    font-size: 0.95rem !important;
+    padding: 0 24px !important;
   }
   .hero__cta-note--v2 {
     text-align: center;
@@ -1171,10 +1173,10 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
   }
   .cs-benefits--v2 {
     grid-template-columns: 1fr 1fr !important;
-    max-width: 100% !important;
+    max-width: 360px !important;
     margin: 0 auto !important;
     text-align: left;
-    gap: 10px !important;
+    gap: 8px !important;
   }
   .hero__portrait {
     max-width: 340px;
@@ -1210,13 +1212,25 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
     margin-bottom: 20px;
   }
   .hero__button--v2 {
-    height: 52px !important;
-    font-size: 0.95rem !important;
+    height: 48px !important;
+    font-size: 0.9rem !important;
+    max-width: 320px !important;
+    padding: 0 20px !important;
   }
   .cs-benefit--v2 {
-    font-size: 12.5px !important;
-    padding: 12px 12px !important;
-    border-radius: 14px !important;
+    font-size: 11.5px !important;
+    padding: 10px 10px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02) !important;
+  }
+  .cs-benefits--v2 {
+    max-width: 300px !important;
+    gap: 6px !important;
+  }
+  .cs-benefit--v2 img {
+    width: 16px !important;
+    height: 16px !important;
+    flex: 0 0 16px !important;
   }
   .hero__portrait {
     max-width: 280px;
@@ -1330,6 +1344,98 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
     line-height: 1.2 !important;
   }
   .form-header__question {
+    font-size: 1.1rem !important;
+  }
+}
+</style>
+
+<style id="cs-image-band-compact">
+/* ============================================================
+   IMAGE BAND – Compact/Premium Redesign
+   Nicht mehr fullscreen, sondern kompakt mit Rundungen,
+   Weißraum und editoriellem Premium-Look
+   ============================================================ */
+.cs-image-band--compact {
+  background: #fff !important;
+  min-height: auto !important;
+  overflow: visible !important;
+  padding: 60px 20px;
+}
+.cs-image-band--compact::before {
+  display: none !important;
+}
+.cs-image-band--compact > img {
+  display: none !important;
+}
+.cs-image-band--compact__inner {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 16 / 7;
+  box-shadow: 0 8px 40px rgba(10, 37, 64, 0.10);
+}
+.cs-image-band--compact__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.cs-image-band--compact__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.52) 100%);
+  z-index: 1;
+}
+.cs-image-band--compact__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 32px 36px;
+  z-index: 2;
+}
+.cs-image-band--compact__content h2 {
+  color: #fff !important;
+  font-size: clamp(1.35rem, 2.8vw, 2rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 !important;
+  max-width: 600px !important;
+  text-align: left !important;
+}
+
+@media (max-width: 768px) {
+  .cs-image-band--compact {
+    padding: 40px 16px;
+  }
+  .cs-image-band--compact__inner {
+    border-radius: 20px;
+    aspect-ratio: 4 / 3;
+  }
+  .cs-image-band--compact__content {
+    padding: 24px 24px;
+  }
+  .cs-image-band--compact__content h2 {
+    font-size: clamp(1.15rem, 5vw, 1.5rem) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .cs-image-band--compact {
+    padding: 32px 16px;
+  }
+  .cs-image-band--compact__inner {
+    border-radius: 16px;
+    aspect-ratio: 3 / 2;
+  }
+  .cs-image-band--compact__content {
+    padding: 20px 20px;
+  }
+  .cs-image-band--compact__content h2 {
     font-size: 1.1rem !important;
   }
 }
@@ -2670,9 +2776,12 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
             </div>
           </div>
         </section>
-        <section class="cs-image-band">
-          <img src="./assets/img/clinic-consultation-room.jpg" alt="Beratungsgespräch in einer Klinik" />
-          <div class="cs-image-band__content"><h2>Die passende Klinik – abgestimmt auf dich und dein gewünschtes Ergebnis</h2></div>
+        <section class="cs-image-band cs-image-band--compact">
+          <div class="cs-image-band--compact__inner">
+            <img src="./assets/img/clinic-consultation-room.jpg" alt="Natürliche ästhetische Ergebnisse" class="cs-image-band--compact__img" />
+            <div class="cs-image-band--compact__overlay"></div>
+            <div class="cs-image-band--compact__content"><h2>Natürliche Ergebnisse, die zu dir passen</h2></div>
+          </div>
         </section>
         <section class="cs-section">
           <div class="cs-section__container">
@@ -3788,23 +3897,47 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
 (function() {
   var waText = document.getElementById('wa-text');
   var waClose = document.getElementById('wa-close');
+  var waSticky = document.querySelector('.whatsapp-sticky');
   if (!waText) return;
 
-  // Close button dismisses immediately
+  var dismissed = false;  // user explicitly closed
+
+  // Close button dismisses and prevents re-show
   if (waClose) {
     waClose.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
+      dismissed = true;
       waText.classList.add('hidden');
     });
   }
 
-  // Auto-hide only on touch/mobile devices (no hover capability)
   var isTouch = !window.matchMedia('(hover: hover)').matches;
+
   if (isTouch) {
+    // Auto-hide after 4s on mobile
     setTimeout(function() {
-      waText.classList.add('hidden');
+      if (!dismissed) {
+        waText.classList.add('hidden');
+      }
     }, 4000);
+
+    // Tapping WA icon toggles the text bubble (unless user dismissed)
+    if (waSticky) {
+      waSticky.addEventListener('click', function(e) {
+        if (dismissed) return; // user closed it, don't re-show
+        if (waText.classList.contains('hidden')) {
+          e.preventDefault();
+          e.stopPropagation();
+          waText.classList.remove('hidden');
+          // Auto-hide again after 4s
+          setTimeout(function() {
+            waText.classList.add('hidden');
+          }, 4000);
+        }
+        // If text is visible, let the link work normally (open WhatsApp)
+      });
+    }
   }
 })();
 </script>
