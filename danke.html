@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Danke – Anfrage erfolgreich | ClinicSelect</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- ✅ Google Tag (GLOBAL – WICHTIG!) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18060751726"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-18060751726');
+    gtag('config', 'G-KR1B6N3RN6');
+  </script>
+
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18060751726/W4F2CLKGyZ0cEO7mhKRD',
+      'value': 1.0,
+      'currency': 'CHF'
+  });
+</script>
+
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css/main.min.css">
+
+  <style>
+    .success {
+      visibility: hidden;
+    }
+
+    .footer__legal-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .footer__legal-links a {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+<div class="wrapper">
+
+  <main class="page">
+
+    <div id="success" class="success">
+      <div class="success__container">
+
+        <div class="success__header">
+          <img alt="ClinicSelect" src="./assets/img/logo.webp">
+        </div>
+
+        <div class="success__body">
+          <h2 class="success__title">Deine Anfrage wurde erfolgreich übermittelt.</h2>
+          <p>Wir leiten dich nun an eine passende, geprüfte Klinik weiter.</p>
+          <p>Bitte achte darauf, dass du telefonisch oder per E-Mail erreichbar bist.</p>
+
+          <a href="./index.html" class="button-ok">
+            <span>Weitere Anfrage senden</span>
+          </a>
+        </div>
+
+        <div class="form-footer">
+          Diskret · Kostenlos · Unverbindlich
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ✅ LOGIK + CONVERSION -->
+    <script>
+      (function () {
+        var isLocalTest =
+          window.location.protocol === 'file:' ||
+          window.location.hostname === 'localhost' ||
+          window.location.hostname === '127.0.0.1';
+
+        var came = sessionStorage.getItem('formSubmitted');
+
+        // ❌ Direktzugriff blockieren
+        if (!came && !isLocalTest) {
+          window.location.replace('./index.html');
+          return;
+        }
+
+        // cleanup
+        if (came) {
+          sessionStorage.removeItem('formSubmitted');
+        }
+
+        // Seite anzeigen
+        document.getElementById('success').style.visibility = 'visible';
+
+        // ✅ Consent prüfen
+        var consent = localStorage.getItem('clinicselect_cookie_consent');
+
+        if (consent === 'accepted') {
+          // 🔥 Google Ads Conversion
+          gtag('event', 'conversion', {
+            send_to: 'AW-18060751726/5B8VCKmEqJYcE07mbKRD',
+            value: 1.0,
+            currency: 'CHF'
+          });
+
+          // Optional zusätzlich
+          gtag('event', 'generate_lead');
+        }
+
+      })();
+    </script>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__container">
+
+      <div class="footer__main">
+        <div class="footer__description">
+          Plattform zur Vermittlung von ästhetischen Behandlungen
+        </div>
+
+        <div class="footer__contact">
+          <a href="/cdn-cgi/l/email-protection#640d0a020b2407080d0a0d071701080107104a070c"><span class="__cf_email__" data-cfemail="f69f989099b6959a9f989f9585939a939582d8959e">[email&#160;protected]</span></a>
+        </div>
+
+        <div class="last-text">
+          Ein Service von Davina Aloge · Kägiswilerstrasse 23, 6064 Kerns, Schweiz
+        </div>
+
+        <div class="footer__legal-links">
+          <a href="./datenschutz.html">Datenschutz</a>
+          <a href="./impressum.html">Impressum</a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body>
+</html>
