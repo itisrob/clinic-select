@@ -33,12 +33,12 @@ window.addEventListener("load", function() {
       form.classList.remove("--sending");
       localStorage.removeItem("clinicselect_form");
       sessionStorage.setItem("formSubmitted", "1");
-      window.location.href = "/danke.html";
+      window.location.href = "./danke.html";
     }).catch((error) => {
       form.classList.remove("--sending");
       console.error("EmailJS error:", error);
       sessionStorage.setItem("formError", "1");
-      window.location.href = "/fehler.html";
+      window.location.href = "./fehler.html";
     });
   });
 });
