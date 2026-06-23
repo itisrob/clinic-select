@@ -3814,7 +3814,7 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
   }
   /* Push WA widget up when cookie banner is visible */
   .whatsapp-wrapper.wa-raised {
-    bottom: 110px;
+    bottom: 120px;
   }
   .whatsapp-text {
     position: relative;
@@ -3835,8 +3835,8 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
   }
   .wa-close {
     position: absolute;
-    top: -6px;
-    right: -6px;
+    top: -8px;
+    right: -8px;
     background: #fff;
     border: 1.5px solid #e5e7eb;
     font-size: 0;
@@ -3844,34 +3844,42 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
     color: #6b7280;
     cursor: pointer;
     padding: 0;
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.12);
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
+    z-index: 10;
   }
   .wa-close:hover, .wa-close:active {
     background: #f3f4f6;
     color: #374151;
     border-color: #d1d5db;
   }
+  /* Dismissed state – wins over everything including hover */
+  .whatsapp-text.wa-dismissed {
+    opacity: 0 !important;
+    transform: translateY(8px) scale(0.95) !important;
+    pointer-events: none !important;
+  }
+  /* Auto-hidden state (can be re-shown on hover) */
   .whatsapp-text.hidden {
     opacity: 0;
     transform: translateY(8px) scale(0.95);
     pointer-events: none;
   }
-  /* Desktop: bubble starts hidden, only shows on hover */
+  /* Desktop: bubble starts hidden, shows on hover – but NOT if dismissed */
   @media (hover: hover) {
     .whatsapp-text {
       opacity: 0;
       transform: translateY(8px) scale(0.95);
       pointer-events: none;
     }
-    .whatsapp-wrapper:hover .whatsapp-text {
+    .whatsapp-wrapper:hover .whatsapp-text:not(.wa-dismissed) {
       opacity: 1;
       transform: translateY(0) scale(1);
       pointer-events: auto;
@@ -3902,7 +3910,7 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
       gap: 8px;
     }
     .whatsapp-wrapper.wa-raised {
-      bottom: 100px;
+      bottom: 110px;
     }
     .whatsapp-text {
       font-size: 12px;
@@ -3910,10 +3918,10 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
       max-width: 180px;
     }
     .wa-close {
-      width: 32px;
-      height: 32px;
-      top: -8px;
-      right: -8px;
+      width: 34px;
+      height: 34px;
+      top: -10px;
+      right: -10px;
     }
     .whatsapp-sticky {
       width: 50px;
@@ -3934,27 +3942,29 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
   var cookieBanner = document.getElementById('cookie-banner');
   if (!waText) return;
 
-  // Close button: one tap always closes, permanently
+  // Close button: X dismisses permanently (survives hover)
+  function dismissWA(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    waText.classList.add('wa-dismissed');
+  }
   if (waClose) {
-    waClose.addEventListener('click', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      waText.classList.add('hidden');
-    });
-    // Also handle touchend for reliable mobile close
-    waClose.addEventListener('touchend', function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      waText.classList.add('hidden');
-    });
+    waClose.addEventListener('click', dismissWA);
+    waClose.addEventListener('touchend', dismissWA);
   }
 
-  // Auto-hide text after 3s on all devices
-  setTimeout(function() {
-    if (!waText.classList.contains('hidden')) {
-      waText.classList.add('hidden');
-    }
-  }, 3000);
+  // Mobile: don't auto-hide – let user read and dismiss with X
+  // Desktop: text is hidden by default via CSS hover rules
+  var isTouch = !window.matchMedia('(hover: hover)').matches;
+  if (isTouch) {
+    // On mobile: keep text visible until user dismisses or scrolls
+    // Auto-hide only after 8s if not dismissed yet
+    setTimeout(function() {
+      if (!waText.classList.contains('wa-dismissed')) {
+        waText.classList.add('hidden');
+      }
+    }, 8000);
+  }
 
   // Cookie banner overlap: push WA widget up when banner is visible
   function checkCookieBanner() {
@@ -3965,7 +3975,9 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
       waWrapper.classList.add('wa-raised');
     }
   }
+  // Run check immediately and also after a short delay (banner may appear with JS)
   checkCookieBanner();
+  setTimeout(checkCookieBanner, 500);
   // Watch for cookie banner visibility changes
   if (cookieBanner) {
     var observer = new MutationObserver(checkCookieBanner);
