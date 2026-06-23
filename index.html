@@ -785,11 +785,12 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
 <style id="clinicselect-steffen-form-polish">
   :root { --cs-cta-green: #16a34a; }
   .form .form__button,
-  .form .button-next { min-height: 56px !important; padding: 0 28px !important; font-size: 16px !important; line-height: 1.2 !important; font-weight: 700 !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 10px !important; }
+  .form .button-next { min-height: 56px !important; padding: 0 28px !important; font-size: 16px !important; line-height: 1.2 !important; font-weight: 700 !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 10px !important; -webkit-tap-highlight-color: transparent; }
+  .form .button-next._not-active { opacity: 0.45 !important; cursor: default !important; pointer-events: none !important; }
   .form .form__buttons,
   .form .form__buttons--cta-first { display: flex !important; flex-direction: column !important; align-items: center !important; gap: 14px !important; }
   .form .form-back-link,
-  .form .button-prev.form-back-link { background: transparent !important; border: 0 !important; box-shadow: none; padding: 0 !important; min-height: auto !important; color: var(--cs-cta-green) !important; font-size: 15px !important; font-weight: 700 !important; line-height: 1.4 !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; }
+  .form .button-prev.form-back-link { background: transparent !important; border: 0 !important; box-shadow: none; padding: 12px 16px !important; min-height: 44px !important; color: var(--cs-cta-green) !important; font-size: 15px !important; font-weight: 700 !important; line-height: 1.4 !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; -webkit-tap-highlight-color: transparent; }
   .form .form-back-link:hover { color: #138a3f !important; text-decoration: underline !important; }
   .form .option-icon { display: none !important; }
   .form .options { display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 12px !important; }
@@ -2890,7 +2891,7 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
                     <div class="options__item"><label for="p_3" class="options__label"><input id="p_3" class="options__input" type="checkbox" value="Gute Beratung & Vertrauen" name="form[priority][]" /><span class="options__text">Gute Beratung & Vertrauen</span></label></div>
                     <div class="options__item"><label for="p_4" class="options__label"><input id="p_4" class="options__input" type="checkbox" value="Behandlung durch erfahrene Spezialisten" name="form[priority][]" /><span class="options__text">Behandlung durch erfahrene Spezialisten</span></label></div>
                     <div class="options__item"><label for="p_5" class="options__label"><input id="p_5" class="options__input" type="checkbox" value="Kostenlose Erstberatung" name="form[priority][]" /><span class="options__text">Kostenlose Erstberatung</span></label></div>
-                    <div class="options__item"><label for="i_new" class="options__label"><input id="i_new" class="options__input" type="checkbox" value="Kurze Wartezeit & schnelle Termine" name="form[preferences]" /><span class="options__text">Kurze Wartezeit & schnelle Termine</span></label></div>
+                    <div class="options__item"><label for="i_new" class="options__label"><input id="i_new" class="options__input" type="checkbox" value="Kurze Wartezeit & schnelle Termine" name="form[priority][]" /><span class="options__text">Kurze Wartezeit & schnelle Termine</span></label></div>
                     <div class="options__item"><label for="p_6" class="options__label"><input id="p_6" class="options__input" type="checkbox" value="Gutes Preis-Leistungs-Verhältnis" name="form[priority][]" /><span class="options__text">Gutes Preis-Leistungs-Verhältnis</span></label></div>
                     <div class="options__item"><label for="p_7" class="options__label"><input id="p_7" class="options__input" type="checkbox" value="Wohlfühlen in der Klinik" name="form[priority][]" /><span class="options__text">Wohlfühlen in der Klinik</span></label></div>
                     <div class="options-microcopy">Viele unserer Partner bieten genau diese Leistungen an</div>
@@ -3164,7 +3165,7 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
         <p class="cookie-banner__text">
           Wir verwenden Cookies und vergleichbare Technologien, um die Website
           technisch bereitzustellen und – nur nach deiner Einwilligung – Google
-          Analytics sowie Google Ads Conversion Tracking zu nutzen. Mehr Infos
+          Analytics, Google Ads Conversion Tracking sowie Microsoft Clarity zu nutzen. Mehr Infos
           findest du in der
           <a href="./datenschutz.html" target="_blank" rel="noopener noreferrer"
             >Datenschutzerklärung</a
@@ -3786,14 +3787,16 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
 }
 </style>
 
-<!-- WhatsApp Sticky Button with auto-hide Text -->
+<!-- WhatsApp Sticky Button – simplified for mobile -->
 <div class="whatsapp-wrapper" id="wa-wrapper">
   <div class="whatsapp-text" id="wa-text">
-    <button class="wa-close" id="wa-close" aria-label="Schließen">&times;</button>
-    Noch unsicher oder offene Fragen? Schreib uns ganz unkompliziert und unverbindlich per WhatsApp.
+    <button class="wa-close" id="wa-close" aria-label="Schließen" type="button">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+    </button>
+    Noch unsicher? Schreib uns per WhatsApp.
   </div>
   <a href="https://wa.me/41798319846?text=Hallo%20ClinicSelect%2C%20ich%20habe%20eine%20Frage." target="_blank" rel="noopener noreferrer" class="whatsapp-sticky" aria-label="Per WhatsApp kontaktieren">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32" fill="#fff">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="28" height="28" fill="#fff">
       <path d="M24 4C12.95 4 4 12.95 4 24c0 3.54.93 6.86 2.55 9.73L4 44l10.57-2.47A19.9 19.9 0 0 0 24 44c11.05 0 20-8.95 20-20S35.05 4 24 4Zm0 36.5a16.4 16.4 0 0 1-8.67-2.47l-.62-.37-6.27 1.47 1.53-6.1-.4-.65A16.4 16.4 0 0 1 7.5 24c0-9.11 7.39-16.5 16.5-16.5S40.5 14.89 40.5 24 33.11 40.5 24 40.5Zm9.03-12.35c-.5-.25-2.93-1.45-3.39-1.61-.45-.17-.78-.25-1.11.25s-1.27 1.61-1.56 1.94c-.29.33-.57.37-1.07.12a13.5 13.5 0 0 1-3.97-2.45 14.9 14.9 0 0 1-2.75-3.42c-.29-.5-.03-.77.22-1.02.22-.22.5-.57.74-.86.25-.29.33-.5.5-.83.17-.33.08-.62-.04-.86-.12-.25-1.11-2.68-1.52-3.67-.4-.96-.81-.83-1.11-.85h-.95c-.33 0-.86.12-1.31.62s-1.72 1.69-1.72 4.11 1.77 4.77 2.01 5.1c.25.33 3.48 5.31 8.43 7.45 1.18.51 2.1.82 2.82 1.04 1.18.38 2.26.32 3.11.2.95-.14 2.93-1.2 3.35-2.35.41-1.16.41-2.15.29-2.35-.13-.21-.46-.33-.95-.58Z"/>
     </svg>
   </a>
@@ -3803,50 +3806,58 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
     position: fixed;
     bottom: 24px;
     right: 24px;
-    z-index: 9999;
+    z-index: 9998;
     display: flex;
     align-items: flex-end;
-    gap: 12px;
+    gap: 10px;
+    transition: bottom 0.3s ease;
+  }
+  /* Push WA widget up when cookie banner is visible */
+  .whatsapp-wrapper.wa-raised {
+    bottom: 110px;
   }
   .whatsapp-text {
     position: relative;
     background: #fff;
     color: #374151;
     font-size: 13px;
-    line-height: 1.45;
-    padding: 12px 28px 12px 16px;
-    border-radius: 16px 16px 4px 16px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-    max-width: 240px;
+    line-height: 1.4;
+    padding: 10px 36px 10px 14px;
+    border-radius: 14px 14px 4px 14px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+    max-width: 200px;
     font-family: 'PlusJakartaSans', sans-serif;
     font-weight: 400;
     opacity: 1;
     transform: translateY(0) scale(1);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
     pointer-events: auto;
   }
   .wa-close {
     position: absolute;
-    top: 6px;
-    right: 6px;
-    background: #f3f4f6;
-    border: none;
-    font-size: 14px;
+    top: -6px;
+    right: -6px;
+    background: #fff;
+    border: 1.5px solid #e5e7eb;
+    font-size: 0;
     line-height: 1;
     color: #6b7280;
     cursor: pointer;
     padding: 0;
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
-  .wa-close:hover {
-    background: #e5e7eb;
+  .wa-close:hover, .wa-close:active {
+    background: #f3f4f6;
     color: #374151;
+    border-color: #d1d5db;
   }
   .whatsapp-text.hidden {
     opacity: 0;
@@ -3867,37 +3878,51 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
     }
   }
   .whatsapp-sticky {
-    width: 60px;
-    height: 60px;
-    min-width: 60px;
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
     background: #25D366;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
   }
   .whatsapp-sticky:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transform: scale(1.08);
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.22);
   }
   @media (max-width: 640px) {
     .whatsapp-wrapper {
-      bottom: 16px;
-      right: 16px;
+      bottom: 14px;
+      right: 14px;
       gap: 8px;
+    }
+    .whatsapp-wrapper.wa-raised {
+      bottom: 100px;
     }
     .whatsapp-text {
       font-size: 12px;
-      padding: 10px 26px 10px 12px;
-      max-width: 200px;
+      padding: 9px 34px 9px 12px;
+      max-width: 180px;
+    }
+    .wa-close {
+      width: 32px;
+      height: 32px;
+      top: -8px;
+      right: -8px;
     }
     .whatsapp-sticky {
-      width: 54px;
-      height: 54px;
-      min-width: 54px;
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
+    }
+    .whatsapp-sticky svg {
+      width: 24px;
+      height: 24px;
     }
   }
 </style>
@@ -3905,47 +3930,46 @@ button, .btn {background:#16a34a !important; color:#fff !important; border-radiu
 (function() {
   var waText = document.getElementById('wa-text');
   var waClose = document.getElementById('wa-close');
-  var waSticky = document.querySelector('.whatsapp-sticky');
+  var waWrapper = document.getElementById('wa-wrapper');
+  var cookieBanner = document.getElementById('cookie-banner');
   if (!waText) return;
 
-  var dismissed = false;  // user explicitly closed
-
-  // Close button dismisses and prevents re-show
+  // Close button: one tap always closes, permanently
   if (waClose) {
     waClose.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      dismissed = true;
+      waText.classList.add('hidden');
+    });
+    // Also handle touchend for reliable mobile close
+    waClose.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
       waText.classList.add('hidden');
     });
   }
 
-  var isTouch = !window.matchMedia('(hover: hover)').matches;
-
-  if (isTouch) {
-    // Auto-hide after 4s on mobile
-    setTimeout(function() {
-      if (!dismissed) {
-        waText.classList.add('hidden');
-      }
-    }, 4000);
-
-    // Tapping WA icon toggles the text bubble (unless user dismissed)
-    if (waSticky) {
-      waSticky.addEventListener('click', function(e) {
-        if (dismissed) return; // user closed it, don't re-show
-        if (waText.classList.contains('hidden')) {
-          e.preventDefault();
-          e.stopPropagation();
-          waText.classList.remove('hidden');
-          // Auto-hide again after 4s
-          setTimeout(function() {
-            waText.classList.add('hidden');
-          }, 4000);
-        }
-        // If text is visible, let the link work normally (open WhatsApp)
-      });
+  // Auto-hide text after 3s on all devices
+  setTimeout(function() {
+    if (!waText.classList.contains('hidden')) {
+      waText.classList.add('hidden');
     }
+  }, 3000);
+
+  // Cookie banner overlap: push WA widget up when banner is visible
+  function checkCookieBanner() {
+    if (!cookieBanner || !waWrapper) return;
+    if (cookieBanner.hidden || cookieBanner.style.display === 'none') {
+      waWrapper.classList.remove('wa-raised');
+    } else {
+      waWrapper.classList.add('wa-raised');
+    }
+  }
+  checkCookieBanner();
+  // Watch for cookie banner visibility changes
+  if (cookieBanner) {
+    var observer = new MutationObserver(checkCookieBanner);
+    observer.observe(cookieBanner, { attributes: true, attributeFilter: ['hidden', 'style'] });
   }
 })();
 </script>

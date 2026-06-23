@@ -19,9 +19,13 @@ window.addEventListener("load", function() {
       const el = form.querySelector(`input[name="${name}"]:checked`);
       return el ? el.value : "";
     };
+    const getAllChecked = (name) =>
+      [...form.querySelectorAll(`input[name="${name}"]:checked`)].map(el => el.value).join(", ");
+
     const templateParams = {
-      location: get("form[location]"),
+      location: getChecked("form[location]"),
       treatment: getChecked("form[treatment]"),
+      priority: getAllChecked("form[priority][]"),
       date: getChecked("form[date]"),
       budget: getChecked("form[budget]"),
       name: get("form[name]"),
@@ -42,5 +46,3 @@ window.addEventListener("load", function() {
     });
   });
 });
-
-/* clinicselect-final-validation-inline-is-source-of-truth */
